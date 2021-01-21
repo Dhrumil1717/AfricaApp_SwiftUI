@@ -49,16 +49,32 @@ struct AnimalDetailsView: View {
             }
             
             //FACTS
+            HeadingView(headingImage: "questionmark.circle", headingTitle: "Wilderness in Pictures")
+           InsideFactView(animal: animals)
             
             //DESCRIPTION
-            
+            Group{
+                HeadingView(headingImage: "info.circle", headingTitle: "All about \(animals.name)")
+                Text(animals.description)
+                    .multilineTextAlignment(.leading)
+                    .layoutPriority(1)
+            }
             //MAP
-        
+            Group{
+                HeadingView(headingImage: "map", headingTitle: "National Parks")
+                InsideMapView()
+
+            }
             //LINKS
+            
+            Group{
+                HeadingView(headingImage: "books.vertical", headingTitle: "Learn More")
+                ExternalLinks(animal: animals)
+            }
             
             VStack (alignment: .center,spacing:20)
             {
-                Text("Placeholder")
+                
             }.navigationBarTitle("Learn about \(animals.name)",displayMode: .inline)
         }//ScrollView
         }//NavigationVIew
